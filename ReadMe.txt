@@ -1,7 +1,6 @@
 -----------------> Sortieralgorithmen Visualisierungsprogramm <------------------------------------------------------------------------------------------------------
 
-Um das Programm zu starten, die Index.html Datei in einem Browser öffnen oder auf der Kommandozeile den Befehl "npm start" eingeben. Für den zweiten Fall
-muss Electron bzw. müssen die Node Modules installiert sein. 
+Um das Programm zu starten, die Index.html Datei in einem Browser öffnen oder auf der Kommandozeile den Befehl "npm start" eingeben. Für den zweiten Fall muss Electron bzw. müssen die Node Modules installiert sein. 
 Um im zweiten Anwendungsfall die Fenstergröße zu ändern, können in der Datei "index.js" die Felder "width" und "height" entsprechend angepasst werden.
 Anschließend oben links einen Algorithmus auswählen und mithilfe des grünen "Start"-Buttons den Sortiervorgang starten.
 
