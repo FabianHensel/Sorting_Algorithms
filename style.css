@@ -1,0 +1,432 @@
+/* Copyright © 2021, Fabian Hensel. All rights reserved.
+   Hamburg, Germany
+   03.09.2021
+   style.css
+*/
+
+html, body {
+    padding: 0;
+    margin: 0;
+    background: black;
+    text-align: center;
+}
+
+/* Eingefügte Schriftart */
+@font-face {
+    font-family: 'futura_book';
+    src: url('fonts/futura-book-bt-22240.ttf');
+}
+
+/*===========================================================================================================*/
+/* Style Dropdown Auswahl Menü */
+.dropbtn {
+    background-color: #053a80;
+    color: white;
+    padding: 20px;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+    font-family: futura_book;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+    background: #2a90d4;
+}
+
+.dropdown {
+    display: inline-block;
+    float: left;
+    margin-left: 20px;
+    margin-top: 5px;
+}
+
+.dropdownContent {
+    display: none;
+    border: 1px solid #053a80;
+    background-color: black;
+    min-width: 120px;
+    text-align: center;
+    font-family: futura_book;
+    font-size: 1.3em;
+    position: absolute;
+}
+
+.dropdownContent a {
+    color: white;
+    padding: 12px 16px;
+    display: block;
+}
+
+.dropdown a:hover {
+    background-color: #2a90d4;
+}
+
+.show {
+    display: block;
+}
+
+/*===========================================================================================================*/
+/* Style Info-Button */
+.infoButton {
+    border-color: #053a80;
+    background-color: black;
+    color: #053a80;
+    border-radius: 25px;
+    float: right;
+    margin-right: 20px;
+    margin-top: 5px;
+    padding: 10px 20px;
+    font-size: 1.5em;
+    font-family: futura_book;
+}
+
+.infoButton:hover {
+    background: #2a90d4; 
+    color: black;
+}
+
+/* Info Dialog */
+#infoDialog {
+    width: 25em;
+	background-color: black;
+    border: 2px solid #053a80;
+    color: White;
+	margin-top: 57px;
+	margin-right: 70px;
+    padding: 0.8em;
+    font-family: futura_book;
+    font-size: 1.1em;
+    border-radius: 5px;
+}
+
+/*===========================================================================================================*/
+/* Style für den Sortiertimer, in diesem Container befinden sich auch die Timer-Buttons */
+#timerDiv {
+    margin-top: 15px;
+    margin-right: 155px;
+}
+
+.sortingTimeValue {
+    color: white;
+    font-size: 3em;
+    font-family: futura_book;
+}
+/*===========================================================================================================*/
+
+/* Style für die Timer-Buttons (Start, Pause, New, Reset) */
+.allTimerButtons {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.btnTimer {
+    border-radius: 5px;
+    margin: 20px;
+    padding: 8px 22px;
+    font-size: 2em;
+    font-family: futura_book;
+}
+
+#btnTimer1 {
+    border-color: #01990e;
+    background-color: black;
+    color: #01990e;
+}
+
+#btnTimer1:hover {
+    background: #19f3a7;
+    color: black;
+}
+
+#btnTimer2 {
+    border-color: #053a80;
+    background-color: black;
+    color: #053a80;
+}
+
+#btnTimer2:hover {
+    background: #2a90d4; 
+    color: black;
+}
+
+#btnTimer3 {
+    border-color: #a9011f;
+    background-color: black;
+    color: #a9011f;
+}
+
+#btnTimer3:hover {
+    background: #ff1770; 
+    color: black;
+}
+
+#btnTimer4 {
+    border-color: #9e9901;
+    background-color: black;
+    color: #9e9901;
+}
+
+#btnTimer4:hover {
+    background: #ebff3b; 
+    color: black;
+}
+/*===========================================================================================================*/
+
+/* Anzeige des ausgewählten Sortieralgorithmus */
+#currentSelectedAlgorithm {
+    position: absolute;
+    top: 20px;
+    margin-right: 82px;
+	background-color: black;
+    border: 0px solid #053a80;
+    color: white;
+    padding: 5px;
+    font-family: futura_book;
+    font-size: 2em;
+    border-radius: 5px;
+}
+
+/* Style für die Statistiken */
+#statisticsQuicksort {
+    color: white;
+    font-size: 1.1em;
+    font-family: futura_book;
+    float: left;
+    position: absolute;
+    bottom: 0;
+}
+
+/*===========================================================================================================*/
+/* Style für Real Time On-Off Switch, den Mute Switch und den Versions Wechsel Switch (Quicksort) */
+#divRealTimeSort {
+    position: absolute;
+    color: white;
+    font-family: futura_book;
+    margin-left: 362px;
+    top: 20px;
+}
+
+#divSoundMute {
+    position: absolute;
+    color: white;
+    font-family: futura_book;
+    margin-left: 362px;
+    top: 56px;
+}
+
+#divVersionChange {
+    position: absolute;
+    color: white;
+    font-family: futura_book;
+    right: 225px;
+    top: 31px;
+    display: none;
+}
+
+.switch {
+	position: relative;
+	display: block;
+	vertical-align: top;
+	width: 95px;
+	height: 25px;
+	padding: 3px;
+	margin: 0 10px 10px 0;
+	background: linear-gradient(to bottom, black, black 25px);
+	background-image: -webkit-linear-gradient(top, black, black 25px);
+	border-radius: 18px;
+	box-shadow: inset 0 -1px black, inset 0 1px 1px rgba(0, 0, 0, 0.05);
+	cursor: pointer;
+	box-sizing:content-box;
+}
+.switchInput {
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0;
+	box-sizing:content-box;
+}
+.switchLabel {
+	position: relative;
+	display: block;
+	height: inherit;
+	font-size: 10px;
+	text-transform: uppercase;
+	background: black;
+	border-radius: inherit;
+	box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.12), inset 0 0 2px rgba(0, 0, 0, 0.15);
+	box-sizing:content-box;
+}
+.switchLabel:before, .switchLabel:after {
+	position: absolute;
+	top: 50%;
+	margin-top: -.5em;
+	line-height: 1;
+	-webkit-transition: inherit;
+	-moz-transition: inherit;
+	-o-transition: inherit;
+	transition: inherit;
+	box-sizing:content-box;
+}
+.switchLabel:before {
+	content: attr(data-off);
+	right: 11px;
+	color: white;
+	text-shadow: 0 1px rgba(255, 255, 255, 0.5);
+}
+.switchLabel:after {
+	content: attr(data-on);
+	left: 11px;
+	color: black;
+	text-shadow: 0 1px rgba(0, 0, 0, 0.2);
+	opacity: 0;
+}
+.switchInput:checked ~ .switchLabel {
+	background: black;
+	box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15), inset 0 0 3px rgba(0, 0, 0, 0.2);
+}
+.switchInput:checked ~ .switchLabel:before {
+	opacity: 0;
+}
+.switchInput:checked ~ .switchLabel:after {
+	opacity: 1;
+}
+.switchHandle {
+	position: absolute;
+	top: 4px;
+	left: 4px;
+	width: 28px;
+	height: 28px;
+	background: linear-gradient(to bottom, black 40%, black);
+	background-image: -webkit-linear-gradient(top, black 40%, black);
+	border-radius: 100%;
+	box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+}
+.switchHandle:before {
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -6px 0 0 -6px;
+	width: 12px;
+	height: 12px;
+	background: linear-gradient(to bottom, black, black);
+	background-image: -webkit-linear-gradient(top, black, black);
+	border-radius: 6px;
+	box-shadow: inset 0 1px rgba(0, 0, 0, 0.02);
+}
+.switchInput:checked ~ .switchHandle {
+	left: 74px;
+	box-shadow: -1px 1px 5px rgba(0, 0, 0, 0.2);
+}
+ 
+.switchLabel, .switchHandle {
+	transition: All 0.3s ease;
+	-webkit-transition: All 0.3s ease;
+	-moz-transition: All 0.3s ease;
+	-o-transition: All 0.3s ease;
+}
+
+.realTimeSwitch {
+    padding: 0;
+    background: black;
+    background-image: none;
+}
+
+.realTimeSwitch .switchLabel {
+    background: black;
+    border: solid 2px #053a80;
+    box-shadow: none
+}
+
+.realTimeSwitch .switchLabel:after {
+    color: white;
+    /*color: #0088cc;*/
+}
+
+.realTimeSwitch .switchHandle {
+    top: 6px;
+    left: 6px;
+    background: #053a80;
+    width: 17px;
+    height: 17px;
+    box-shadow: none;
+}
+
+.realTimeSwitch .switchHandle:before {
+    background: #053a80;
+}
+
+.realTimeSwitch .switchInput:checked ~ .switchLabel {
+    background: black;
+    border-color: #053a80;
+}
+
+.realTimeSwitch .switchInput:checked ~ .switchHandle {
+    left: 72px;
+    background: #053a80;
+    box-shadow: none;
+}
+/*===========================================================================================================*/
+ 
+/* Style für den Balkenbreite Slider */
+.sliderDiv {
+    position: absolute;
+    width: 170px; 
+    margin-left: 95px;
+    color: white;
+    font-family: futura_book;
+    font-size: 1em;
+}
+  
+.valueChangeSlider {
+    position: absolute;
+    -webkit-appearance: none;  
+    appearance: none;
+    width: 100%;
+    height: 5px; 
+    border-radius: 10px;
+    background: #d3d3d3; 
+    outline: none; 
+    opacity: 0.7; 
+    -webkit-transition: .2s; 
+    transition: opacity .2s;
+
+}
+#barWidthSlider {
+    top: 4px;
+}
+
+#barWidthLabel {
+    position: absolute;
+    margin-left: 55px;
+    top: 14px;
+    width: 55px;
+}
+
+#sortingTimeSlider {
+    top: 39px;
+}
+
+#sortingTimeLabel {
+    position: absolute;
+    margin-left: 55px;
+    top: 51px;
+    width: 55px;
+}
+  
+.valueChangeSlider:hover {
+    opacity: 1; 
+}
+  
+.valueChangeSlider::-webkit-slider-thumb {
+    -webkit-appearance: none; 
+    appearance: none;
+    width: 12px; 
+    height: 12px; 
+    border-radius: 10px;
+    background: #053a80; 
+    cursor: pointer; 
+}
+/*===========================================================================================================*/ 

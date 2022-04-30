@@ -1,0 +1,113 @@
+<!-- Copyright © 2021, Fabian Hensel. All rights reserved.
+	 Hamburg, Germany
+	 03.09.2021
+     index.html 
+-->
+
+<!DOCTYPE html> 
+    <head>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <title>Sortieralgorithmen</title>
+    </head>
+    <body>
+        <!-- Dropdown Auswahl Menü -->
+        <div class="dropdown">
+            <button onclick="mySelect()" class="dropbtn">Algorithmen</button>
+            <div id="myDropdown" class="dropdownContent">
+                <a onclick="selectSelectionsort()">Selectionsort</a>
+                <a onclick="selectInsertionsort()">Insertionsort</a>
+                <a onclick="selectBubblesort()">Bubblesort</a>
+                <a onclick="selectQuicksort()">Quicksort</a>
+            </div>
+        </div>
+
+        <!-- Dialog für zurzeit gewählten Sortieralgorithmus -->
+        <dialog open id="currentSelectedAlgorithm">Start Screen</dialog>
+
+        <!-- On-Off-Switch für das Umschalten in den Real Time Sortiermodus -->
+        <div id="divRealTimeSort">
+            <label class="switch realTimeSwitch">
+                <input id="rtsOnOff" class="switchInput" type="checkbox">
+                <span class="switchLabel" data-on="RTS-On" data-off="RTS-Off"></span>
+                <span class="switchHandle"></span>
+            </label>
+        </div>
+
+        <!-- Switch für das Stumm schalten des Tons -->
+        <div id="divSoundMute">
+            <label class="switch realTimeSwitch">
+                <input id="soundMute" class="switchInput" type="checkbox" checked>
+                <span class="switchLabel" data-on="mute" data-off="unmute"></span>
+                <span class="switchHandle"></span>
+            </label>
+        </div>
+
+        <!-- Switch für den Versions Wechsel zwischen den Quicksort Varianten -->
+        <div id="divVersionChange">
+            <label class="switch realTimeSwitch">
+                <input id="versionChange" class="switchInput" type="checkbox" checked>
+                <span class="switchLabel" data-on="variant 2" data-off="variant 1"></span>
+                <span class="switchHandle"></span>
+            </label>
+        </div>
+
+        <!-- Slider für die Änderung der Balkenbreite/Anzahl der Elemente und für die Änderung der Sortierzeit -->
+        <div class="sliderDiv">
+            <input type="range" min="1" max="50" value="8" class="valueChangeSlider" id="barWidthSlider">
+            <input type="range" min="1" max="100" value="25" class="valueChangeSlider" id="sortingTimeSlider">
+            <label id="barWidthLabel">5 px</label>
+            <label id="sortingTimeLabel">25 ms</label>
+        </div>
+        
+        <!-- Info-Button und Info Dialog -->
+        <button id="infoID" class="infoButton">i</button>
+        <dialog open id="infoDialog">
+            <font color="#01990e">Start: </font>Startet den Sortiervorgang
+            <br/><font color="#053a80">Pause: </font> Pausiert/Verlangsamt den Sortiervorgang
+            <br/><font color="#a9011f">New: </font> Erstellt ein neues zu sortierendes Diagramm
+            <br/><font color="#9e9901">Reset: </font> Resetted das zuletzt neu erstellte Diagramm
+            <br/><br/>(<font color="#9e9901">Reset </font> funktioniert erst nach Ablauf der Sortierung. <font color="#a9011f">New </font> funktioniert vor der Sortierung, nach der Sortierung und im Start Screen)
+            <br/><br/>Der obere Slider ermöglicht die Anzahl der Elemente zu verändern. Nur zu Beginn, bzw. nach Betätigen von <font color="#a9011f">New</font> möglich.
+            <br/><br/>Der untere Slider ermöglicht die Sortierzeit zu verändern. (Während Sortierung möglich)
+            <br/><br/>Der Switch-Button RTS-On/RTS-Off ermöglicht das Umschalten zwischen visualisierter Sortierung (RTS-Off) und Echtzeit-Sortierung (RTS-On).
+            <br/>(*RTS = Real Time Sorting)
+            <br/><br/>Der Switch-Button Mute/Unmute ermöglicht das Stummschalten des Sortiersounds. Der Sortiersound kann nur für die empfohlene Balkenbreite der jeweiligen Algorithmen (siehe Info jeweiliger Algorithmus) eingeschaltet werden.
+            <br/><br/>Bei Auswahl des Quicksorts, kann mittels des Switch-Button V1/V2 zwischen zwei verschiedenen Quicksort-Implementierungen gewählt werden.
+        </dialog>
+
+        <!-- Timer und Timer-Buttons -->
+        <div id="timerDiv">
+            <div id="sortingTimeValue" class="sortingTimeValue">00:00:0</div>
+            <div class="allTimerButtons">
+                <button onclick="startSorting()" id="btnTimer1" class="btnTimer">Start</button>
+                <button onclick="pauseSorting()" id="btnTimer2" class="btnTimer">Pause</button>
+                <button onclick="newSorting()" id="btnTimer3" class="btnTimer">New</button>
+                <button onclick="resetSorting()" id="btnTimer4" class="btnTimer">Reset</button>
+            </div>
+        </div>
+
+        <!-- Statistiken zu den Sortierverfahren -->
+        <div id="statisticsQuicksort">
+            <div id="toSortingElements" class="statisticsQuicksort">0</div>
+            <div id="windowSize" class="statisticsQuicksort">0</div>
+            <div id="sortingTime" class="statisticsQuicksort">0</div>
+            <div id="countSwaps" class="statisticsQuicksort">0</div>
+            <div id="countRekursivCalls" class="statisticsQuicksort">0</div>
+        </div>
+
+        <!-- https://www.jsdelivr.com/ -->
+        <script src="https://cdn.jsdelivr.net/npm/easytimer.js@4.5.0/dist/easytimer.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/p5@1.2.0/lib/p5.js"></script>
+        
+        <script src="scripts/algorithmSelection.js"></script>
+        <script src="scripts/sortingTimer.js"></script>
+        <script src="scripts/infobox.js"></script>
+        <script src="scripts/unsortedBars.js"></script>
+        <script src="scripts/valueChange.js"></script>
+        <script src="scripts/sortingSound.js"></script>
+        <script src="scripts/selectionsort.js"></script>
+        <script src="scripts/insertionsort.js"></script>
+        <script src="scripts/bubblesort.js"></script>
+        <script src="scripts/quicksort.js"></script>
+    </body>
+</html>
